@@ -1,0 +1,35 @@
+<h1>Tag List</h1>
+
+<table class="table">
+
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Name</th>
+        <th scope="col">Button</th>
+      </tr>
+    </thead>
+    <tbody>
+    <% @tags.each_with_index do |tag, index| %>
+      <tr>
+        <th scope="row">
+        <%= index+1 %>
+        </th>
+        <td>
+        <%= tag.name %>
+        </td>
+        <td>
+            <button type="button" class="btn btn-danger">
+            <%= link_to "Delete", tag_path(tag), method: :delete, data: {confirm: 'Are you sure?'} %>
+            </button>
+            <button type="button" class="btn btn-primary">
+            <%= link_to "Edit", edit_tag_path(tag) %>
+            </button>
+            <button type="button" class="btn btn-primary">
+            <%= link_to "Show", tag_path(tag) %>
+            </button>
+        </td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>

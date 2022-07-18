@@ -1,0 +1,20 @@
+<label for="Book">Choose Book:</label>
+
+
+<%= form_tag(asstag_books_path, :method => "post") do %>
+
+</br>
+<%= select_tag "book_id", options_for_select(Book.all.pluck(:title, :id)) %>
+
+</br>
+<label for="Tag">Choose tag:</label>
+</br>
+<%= select_tag "tag_id", options_for_select(Tag.all.pluck(:name, :id)) %>
+
+<button type="submit">Assign</button>
+
+
+<% end %>
+
+
+
